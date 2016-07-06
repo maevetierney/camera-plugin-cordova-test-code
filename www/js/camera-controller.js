@@ -1,5 +1,6 @@
+angular.module('starter', ['ionic', 'ngCordova'])
 
-exampleApp.controller('ExampleController', function($scope, $cordovaCamera) {
+.controller('CameraCtrl', function($scope, $cordovaCamera) {
 
   $scope.takePicture = function() {
     var options = {
@@ -16,11 +17,9 @@ exampleApp.controller('ExampleController', function($scope, $cordovaCamera) {
     };
 
     $cordovaCamera.getPicture(options).then(function(imageData) {
-      var image = document.getElementById('myImage');
-      image.src = "data:image/jpeg;base64," + imageData;
       function displayImage(imgUri) {
-        var elem = document.getElementById('imageFile');
-        elem.src = imgUri;
+        var image = document.getElementById('myImage');
+        image.src = "data:image/jpeg;base64," + imageData;
       }
       displayImage(image);
       //save photo to the page
